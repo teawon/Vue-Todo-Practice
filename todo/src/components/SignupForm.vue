@@ -21,19 +21,29 @@
 
 <script>
 import { ref } from "vue";
+import { createUser } from "@/api/auth";
+import { useRouter } from "vue-router";
 
 export default {
   name: "SignupForm",
   setup() {
+    const router = useRouter();
+
     const email = ref("");
     const password = ref("");
     const nickname = ref("");
 
-    const handleSubmit = () => {
-      //TODO 회원가입 api 요청
-      alert(
-        `회원가입 정보: ${email.value}, ${password.value}, ${nickname.value}`
-      );
+    const handleSubmit = async () => {
+      try {
+        await createUser({
+          userName: nickname.value,
+          email: email.value,
+          password: password.value,
+        });
+        router.push("/");
+      } catch (error) {
+        alert(error);
+      }
     };
 
     return {
