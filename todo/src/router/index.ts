@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../components/HelloWorld.vue";
 import TodoList from "../components/TodoList.vue";
+import SignupForm from "../components/SignupForm.vue";
 
 //  애플리케이션의 경로(path)와 각 경로에 연결된 컴포넌트(component)를 정의
 const routes: Array<RouteRecordRaw> = [
@@ -13,6 +14,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/todo",
     name: "Todo",
     component: TodoList,
+  },
+  {
+    path: "/signup",
+    name: "Signup",
+    component: SignupForm,
   },
 ];
 
