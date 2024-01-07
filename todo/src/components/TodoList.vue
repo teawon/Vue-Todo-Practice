@@ -22,7 +22,8 @@
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
   name: "TodoList",
   data() {
     return {
@@ -43,7 +44,7 @@ export default {
       this.todos.splice(index, 1);
     },
   },
-};
+});
 </script>
 
 <!-- css  -->
